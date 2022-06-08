@@ -6,22 +6,25 @@ class White_Chess(pygame.sprite.Sprite):
         pygame.sprite.Sprite.__init__(self)
         self.image = pygame.image.load(white_chess_link)
         self.rect = self.image.get_rect()
-        self.radius = 30
+        self.radius = 28
         self.screen = screen
         self.number = number
         self.rect.x = x
         self.rect.y = y
+        self.color = "white"
+      
 
-    def update(self, dx, dy, i):
+    def update(self, dx, dy, i, color):
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_RIGHT] and i == self.number:
-            self.rect.x += dx
-        if keys[pygame.K_DOWN] and i == self.number:
-            self.rect.y += dy
-        if keys[pygame.K_LEFT] and i == self.number:
-            self.rect.x -= dx
-        if keys[pygame.K_UP] and i == self.number:
-            self.rect.y -= dy
+        if color == "white":
+            if keys[pygame.K_RIGHT] and i == self.number:
+                self.rect.x += dx
+            if keys[pygame.K_DOWN] and i == self.number:
+                self.rect.y += dy
+            if keys[pygame.K_LEFT] and i == self.number:
+                self.rect.x -= dx
+            if keys[pygame.K_UP] and i == self.number:
+                self.rect.y -= dy
 
     def update1(self, dx, dy, i):
         self.rect.x += dx
